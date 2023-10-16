@@ -43,7 +43,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  // Solution code here...
+  const newArr = [];
+  arr.forEach(ele => {
+    newArr.push(ele.toUpperCase());
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,12 +61,18 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  return word.toUpperCase() + '!';
 };
 
+// console.log(greeting("hello"));
+
 const speaker = (words, callback) => {
-  // Solution code here...
+  let newArr = [];
+  words.forEach(ele => newArr.push(callback(ele)));
+  return newArr;
 };
+
+console.log(speaker(["hello", "hi"], greeting));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -151,7 +161,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array of uppercase strings', () => {
     expect(allUpperCase(['hi', 'how', 'are', 'you'])).toStrictEqual(['HI', 'HOW', 'ARE', 'YOU']);
   });
