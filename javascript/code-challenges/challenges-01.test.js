@@ -72,7 +72,7 @@ const speaker = (words, callback) => {
   return newArr;
 };
 
-console.log(speaker(["hello", "hi"], greeting));
+// console.log(speaker(['hello', 'hi'], greeting));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -151,12 +151,12 @@ const fizzbuzz = (arr) => {
 
   arr.forEach(ele => {
     if (ele % 15 === 0){
-      newArr.push("Fizz Buzz");
+      newArr.push('Fizz Buzz');
     } else if (ele % 5 === 0) {
-      newArr.push("Buzz");
+      newArr.push('Buzz');
     } else if (ele % 3 === 0) {
-      newArr.push("Fizz");
-    } else newArr.push(ele)
+      newArr.push('Fizz');
+    } else newArr.push(ele);
   });
   return newArr;
 };
