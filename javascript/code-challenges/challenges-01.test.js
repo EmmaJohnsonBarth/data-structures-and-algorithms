@@ -28,7 +28,7 @@ const addExclamation = (arr) => {
   const newArr = [];
 
   arr.forEach(ele => {
-    newArr.push(ele + '!')
+    newArr.push(ele + '!');
   });
 
   return newArr;
@@ -91,12 +91,18 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  while (times > 0) {
+    callback(arr, num);
+    times--;
+  }
+  return arr;
 };
+
+// console.log(addNumbers(4, [1,2,3], 3, addValues));
 
 /* ------------------------------------------------------------------------------------------------
 
@@ -117,7 +123,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let newArr = [];
+  availableItems.forEach(ele => {
+    if (ele.available === true){
+      newArr.push(ele.name);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -167,20 +179,20 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should provide an array of strings, that get uppercased, and a "!" at the end', () => {
     expect(speaker(['hello', '301', 'students'], greeting)).toStrictEqual(['HELLO!', '301!', 'STUDENTS!']);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should add the number 8 to the array five times', () => {
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
 
   test('It should only add the available items to the list', () => {
